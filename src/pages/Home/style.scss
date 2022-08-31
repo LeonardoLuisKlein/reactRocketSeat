@@ -3,8 +3,21 @@
     align-items: center;
     flex-direction: column;
 
-    h1{
+    header{
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         margin: 84px 0 24px;
+        div{
+            display: flex;
+            align-items: center;
+        }
+        img{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
     }
 
     input {
@@ -17,6 +30,7 @@
 
         font-size: 16px;
     }
+
 
     button {
         width: 50%;
