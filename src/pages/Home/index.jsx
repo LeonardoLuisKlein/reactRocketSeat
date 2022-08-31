@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import {Card} from '../../components/card/index'
 import './style.scss'
 
 function Home() {
@@ -10,6 +10,9 @@ function Home() {
     <h1>Lista de presença</h1>
     <input type="text" placeholder='Digite o nome do estudante'/>
     <button>Incluir</button>
+    <Card name="Leonardo Klein" time="10:21:40"/>
+    <Card />
+    <Card />
     </div>
   )
 }
