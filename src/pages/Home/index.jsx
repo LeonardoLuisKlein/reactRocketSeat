@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "../../components/card/index";
 import "./style.scss";
 
 function Home() {
   const [studentName, setStudentName] = useState("");
   const [students, setStudents] = useState([]);
+  const [user, setUser] = useState({ name: '', avatar: ''})
 
   function handleAddStudent(){
     const newStudent = {
@@ -19,13 +20,24 @@ function Home() {
     setStudents(prevState => [...prevState, newStudent]);
   }
 
+  useEffect(() => {
+    fetch('https://api.github.com/users/LeonardoLuisKlein')
+    .then(response => response.json())
+    .then(data => {
+     setUser({
+      name: data.name,
+      avatar: data.avatar_url
+      })
+    })
+  }, []) 
+
   return (
     <div className="container">
       <header>
       <h1>Lista de presença</h1>
       <div>
-        <strong>Leonardo Klein</strong>
-        <img src="https://github.com/LeonardoLuisKlein.png" />
+        <strong>{user.name}</strong>
+        <img src={user.avatar} alt="foto de perfil"/>
       </div>
       </header>
       
